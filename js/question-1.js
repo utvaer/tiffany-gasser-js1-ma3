@@ -1,3 +1,3 @@
 const division = (a, b) => a % b;
 
-const result = divison(6, 2);
+const result = division(6, 2);
