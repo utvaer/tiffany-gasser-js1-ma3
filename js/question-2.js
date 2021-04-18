@@ -8,27 +8,25 @@ async function getGames() {
 
         const results = await response.json();
 
-        console.log(results);
-
-//WORKS UP UNTIL HERE
         gamesContainer.innerHTML = "";
 
         for (let i = 0; i < results.results.length; i++) {
-            console.log(results.results[i].name);
-
             if (i === 8) {
                 break;
             }
 
-            gamesContainer.innerHTML += `<div class="games">Game: ${results.results[i].name}
-            Rating: ${results.results[i].rating} 
-            Tags: ${results.results[i].tags.length} </div>`;
+            const gameName = results.results[i].name;
+            const gameRating = results.results[i].rating;
+            const gameTags = results.results[i].tags.length;
+
+            gamesContainer.innerHTML += `<div class="games"><h2>${[i+1]}. Game: ${gameName}</h2>
+            <p>Rating: ${gameRating}</p>
+            <p>Tags: ${gameTags}</p> </div>`;
         }
 
     } catch (error) {
-        console.log(error)
-
-        gamesContainer.innerHTML += `An error occured, please try again later.`;
+        gamesContainer.innerHTML = "";
+        gamesContainer.innerHTML += `<p>An error occured, please try again later.</p>`;
     }
 }
 
