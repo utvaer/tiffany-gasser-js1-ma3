@@ -1,7 +1,7 @@
-// I adapted the function to divide rather than using the remainder symbol.
+// I renamed the function in order for it to match its use.
 
-const division = (a, b) => a / b;
+const remainder = (a, b) => a / b;
 
-const result = division(10, 2);
+const result = remainder(10, 2);
 
 console.log(result);
