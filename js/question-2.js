@@ -13,18 +13,22 @@ async function getGames() {
 //WORKS UP UNTIL HERE
         gamesContainer.innerHTML = "";
 
-        for (let i = 0; i < results.length; i++) {
-            console.log(results);
+        for (let i = 0; i < results.results.length; i++) {
+            console.log(results.results[i].name);
 
-            if (i === 9) {
+            if (i === 8) {
                 break;
             }
 
-            gamesContainer.innerHTML += `<div class="games">${results[i].name}</div>`;
+            gamesContainer.innerHTML += `<div class="games">Game: ${results.results[i].name}
+            Rating: ${results.results[i].rating} 
+            Tags: ${results.results[i].tags.length} </div>`;
         }
 
     } catch (error) {
         console.log(error)
+
+        gamesContainer.innerHTML += `An error occured, please try again later.`;
     }
 }
 
